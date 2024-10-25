@@ -39,7 +39,6 @@ function App() {
       .then((data) => setPlayersList(data));
   }, []);
 
-
   // Choose Player
   const choosePlayer = (player) => {
     // finding exist player
@@ -47,38 +46,8 @@ function App() {
       (singlePlayer) => singlePlayer.id === player.id,
     );
 
-    if (!exist) {
-      if (player.hiring_price > coin) {
-        toast.error("No Balance", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } else {
-        // Balance deducted
-        setCoin(coin - player.hiring_price);
-        // Success alert
-        toast.success(`${player.name} has been selected`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        // Selected Player updated
-        const updatedPlayers = [...selectedPlayers, player];
-        setSelectedPlayers(updatedPlayers);
-      }
-    } else {
-      toast.error("Player has already been selected", {
+    if (selectedPlayers.length === 6) {
+      toast.error("Can't Select more than 6 players", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -88,6 +57,49 @@ function App() {
         progress: undefined,
         theme: "light",
       });
+    } else {
+      if (!exist) {
+        if (player.hiring_price > coin) {
+          toast.error("No Balance", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          // Balance deducted
+          setCoin(coin - player.hiring_price);
+          // Success alert
+          toast.success(`${player.name} has been selected`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          // Selected Player updated
+          const updatedPlayers = [...selectedPlayers, player];
+          setSelectedPlayers(updatedPlayers);
+        }
+      } else {
+        toast.error("Player has already been selected", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
@@ -131,7 +143,10 @@ function App() {
           choosePlayer={choosePlayer}
         />
       ) : (
-        <SelectedPlayers selectedPlayers={selectedPlayers}/>
+        <SelectedPlayers
+          selectedPlayers={selectedPlayers}
+          setActivity={setActivity}
+        />
       )}
 
       {/* React Toastify Container */}
