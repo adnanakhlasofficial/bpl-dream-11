@@ -3,7 +3,7 @@ import PlayerSelected from "./PlayerSelected";
 
 const SelectedPlayers = ({ selectedPlayers, setActivity, removePlayer }) => {
   return (
-    <div className="my-12 space-y-6">
+    <div className="wrapper my-12 space-y-6">
       {
         selectedPlayers.map(player => <PlayerSelected key={player.id} removePlayer={removePlayer} player={player}/>)
       }

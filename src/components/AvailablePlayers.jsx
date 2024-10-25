@@ -4,7 +4,7 @@ import SinglePlayer from "./SinglePlayer";
 const AvailablePlayers = ({playersList, choosePlayer}) => {
 
   return (
-    <div className="my-12 grid grid-cols-3 gap-6">
+    <div className="wrapper my-12 grid grid-cols-3 gap-6">
       {/* <SinglePlayer players={players}/> */}
 
       {

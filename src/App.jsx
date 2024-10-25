@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AvailablePlayers from "./components/AvailablePlayers";
 import SelectedPlayers from "./components/SelectedPlayers";
+import Footer from "./components/Footer";
 
 function App() {
   const [coin, setCoin] = useState(0);
@@ -112,19 +113,19 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <>
       {/* Navbar */}
       <Navbar coin={coin} />
       {/* Banner */}
       <Banner claimCoin={claimCoin} />
 
       {/* Button */}
-      <div className="mt-20 flex items-center justify-between">
+      <div className="mt-20 flex items-center justify-between wrapper">
         <div>
           {isActive ? (
             <h1 className="section-title">Available Players</h1>
           ) : (
-            <h1 className="section-title">Selected Players</h1>
+            <h1 className="section-title">Selected Players ({selectedPlayers.length}/6)</h1>
           )}
         </div>
 
@@ -158,9 +159,11 @@ function App() {
         />
       )}
 
+      <Footer />
+
       {/* React Toastify Container */}
       <ToastContainer />
-    </div>
+    </>
   );
 }
 

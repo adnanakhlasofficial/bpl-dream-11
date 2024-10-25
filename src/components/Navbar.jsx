@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Navbar = ({coin}) => {
     return (
-        <div className='flex justify-between items-center pt-8'>
+        <div className='wrapper flex justify-between items-center pt-8'>
             <div>
                 <img src="./images/logo.webp" alt="logo" />
             </div>

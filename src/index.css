@@ -60,6 +60,12 @@
   .section-title {
     @apply text-3xl font-bold text-deep-black;
   }
+  .footer-title {
+    @apply text-lg font-semibold
+  }
+  .footer-desc {
+    @apply text-base text-[#9B9DA3]
+  }
 }
 
 body {

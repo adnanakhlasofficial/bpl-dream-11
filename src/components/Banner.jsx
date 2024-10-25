@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Banner = ({ claimCoin }) => {
   return (
-    <div className="bg-banner mt-6 flex min-h-[34rem] w-full flex-col items-center justify-center gap-6 rounded-3xl bg-cover text-center text-white">
+    <div className="wrapper bg-banner mt-6 flex min-h-[34rem] w-full flex-col items-center justify-center gap-6 rounded-3xl bg-cover text-center text-white">
       <img src="./images/banner-main.webp" alt="Cricket_Logo" />
       <div className="flex flex-col gap-4">
         <h1 className="banner-title">
