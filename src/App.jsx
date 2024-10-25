@@ -10,6 +10,7 @@ function App() {
   const [coin, setCoin] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [playersList, setPlayersList] = useState([]);
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
 
   // Claim Coin Function & Alert
   const claimCoin = () => {
@@ -31,13 +32,63 @@ function App() {
     setIsActive(activity);
   };
 
+  // JSON data Fetch
   useEffect(() => {
     fetch("/players.json")
-    .then(res => res.json())
-    .then(data => setPlayersList(data))
-  }, [])
+      .then((res) => res.json())
+      .then((data) => setPlayersList(data));
+  }, []);
 
-  // console.log(playersList);
+  // Choose Player
+  const choosePlayer = (player) => {
+    if (player.hiring_price > coin) {
+      toast.error("No Balance", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      setCoin(coin - player.hiring_price);
+      toast.success(`${player.name} has been selected`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
+  // Existing Player Check
+  const isExist = (player) => {
+    const exist = selectedPlayers.find(
+      (singlePlayer) => singlePlayer.id === player.id,
+    );
+
+    if (!exist) {
+      const updatedPlayers = [...selectedPlayers, player];
+      setSelectedPlayers(updatedPlayers);
+    } else {
+      toast.error('Player has already been selected', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -47,9 +98,13 @@ function App() {
       <Banner claimCoin={claimCoin} />
 
       {/* Button */}
-      <div className="mt-20 flex justify-between items-center">
+      <div className="mt-20 flex items-center justify-between">
         <div>
-          {isActive ? <h1 className="section-title">Available Players</h1> : <h1 className="section-title">Selected Players</h1>}
+          {isActive ? (
+            <h1 className="section-title">Available Players</h1>
+          ) : (
+            <h1 className="section-title">Selected Players</h1>
+          )}
         </div>
 
         <div>
@@ -63,13 +118,21 @@ function App() {
             onClick={() => setActivity(false)}
             className={`${!isActive ? "btn-selected" : "btn-not-selected"} rounded-l-none`}
           >
-            Selected
+            Selected ({selectedPlayers.length})
           </button>
         </div>
       </div>
 
       {/* Players Container */}
-      {isActive ? <AvailablePlayers playersList={playersList} /> : <SelectedPlayers />}
+      {isActive ? (
+        <AvailablePlayers
+          playersList={playersList}
+          choosePlayer={choosePlayer}
+          isExist={isExist}
+        />
+      ) : (
+        <SelectedPlayers />
+      )}
 
       {/* React Toastify Container */}
       <ToastContainer />

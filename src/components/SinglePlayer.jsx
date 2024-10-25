@@ -2,7 +2,7 @@ import user from "../img/user.svg";
 import flag from "../img/flag.svg";
 import PropTypes from "prop-types";
 
-const SinglePlayer = ({ player }) => {
+const SinglePlayer = ({ player, choosePlayer, isExist }) => {
 
   const {name, image, hiring_price, country, rating, batting_hand, bowling_style, category} = player;
   return (
@@ -41,7 +41,7 @@ const SinglePlayer = ({ player }) => {
           <h3 className="card-sub-desc">Price </h3>
           <p className="card-sub-title">&#2547;{hiring_price}</p>
         </div>
-        <button className="card-btn">Choose Player</button>
+        <button onClick={()=>{choosePlayer(player); isExist(player)}} className="card-btn">Choose Player</button>
       </div>
     </div>
   );
@@ -49,6 +49,8 @@ const SinglePlayer = ({ player }) => {
 
 SinglePlayer.propTypes = {
     player: PropTypes.object.isRequired,
+    choosePlayer: PropTypes.func,
+    isExist: PropTypes.func
 
 }
 
