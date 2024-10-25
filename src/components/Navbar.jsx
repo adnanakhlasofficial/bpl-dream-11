@@ -1,8 +1,9 @@
-import dollar from "../img/coin.svg"
+import dollar from "../img/coin.svg";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({coin}) => {
     return (
-        <div className='wrapper flex justify-between items-center pt-8'>
+        <div className='flex justify-between items-center pt-8'>
             <div>
                 <img src="./images/logo.webp" alt="logo" />
             </div>
@@ -14,11 +15,15 @@ const Navbar = () => {
                     <li><a className="nav-links" href="#">Schedules</a></li>
                 </ul>
                 <div>
-                    <span className="balance">0 Coin <img src={dollar} alt="Dollar" /></span>
+                    <span className="balance">{coin} Coin <img src={dollar} alt="Dollar" /></span>
                 </div>
             </div>
         </div>
     );
 };
+
+Navbar.propTypes = {
+    coin: PropTypes.number.isRequired
+}
 
 export default Navbar;
