@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import trash from '../img/trash.svg';
 
-const PlayerSelected = ({ player }) => {
+const PlayerSelected = ({ player, removePlayer }) => {
   return (
     <div className="rounded-2xl border-2 p-6 flex items-center justify-between">
       <div className="flex gap-6 ">
@@ -16,7 +16,7 @@ const PlayerSelected = ({ player }) => {
         </div>
       </div>
       <div>
-        <button><img src={trash} alt="" /></button>
+        <button onClick={()=> removePlayer(player)}><img src={trash} alt="" /></button>
       </div>
     </div>
   );
@@ -24,6 +24,7 @@ const PlayerSelected = ({ player }) => {
 
 PlayerSelected.propTypes = {
   player: PropTypes.object.isRequired,
+  removePlayer: PropTypes.func
 };
 
 export default PlayerSelected;

@@ -103,6 +103,14 @@ function App() {
     }
   };
 
+  // Remove Player
+  const removePlayer = (player) => {
+    // Filter player after player removed
+    const updatePlayers = selectedPlayers.filter(singlePlayer => singlePlayer.id !== player.id);
+    setSelectedPlayers(updatePlayers);
+    setCoin(coin + player.hiring_price)
+  }
+
   return (
     <div className="wrapper">
       {/* Navbar */}
@@ -146,6 +154,7 @@ function App() {
         <SelectedPlayers
           selectedPlayers={selectedPlayers}
           setActivity={setActivity}
+          removePlayer={removePlayer}
         />
       )}
 
