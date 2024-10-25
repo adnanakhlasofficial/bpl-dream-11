@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="./public/images/banner.png"/>
+</p>
 
 # BPL DREAM 11
 
