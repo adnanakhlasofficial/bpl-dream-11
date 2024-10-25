@@ -1,0 +1,28 @@
+/* Google Font Sora */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply hover:bg-secondary rounded-xl bg-primary px-5 py-3 font-bold transition-colors;
+  }
+  .balance {
+    @apply inline-flex gap-2 rounded-xl border-2 px-5 py-4;
+  }
+}
+
+@layer utilities {
+  .wrapper {
+    @apply container mx-auto px-4;
+  }
+  .nav-links {
+    @apply text-dark-gray hover:text-deep-black;
+  }
+}
+
+body {
+  font-family: "Sora", sans-serif;
+}

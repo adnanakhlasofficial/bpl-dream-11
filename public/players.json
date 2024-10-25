@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co.com/nnxCHBM/shakib-al-hasan.webp",
+    "name": "Shakib Al Hasan",
+    "hiring_price": 500000,
+    "country": "Bangladesh",
+    "rating": 9.5,
+    "category": "All-Rounder",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Left-arm orthodox spin"
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co.com/gJrNfD0/tamim-iqbal.webp",
+    "name": "Tamim Iqbal",
+    "hiring_price": 300000,
+    "country": "Bangladesh",
+    "rating": 8.9,
+    "category": "Batsman",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Right-arm medium"
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co.com/b2dqZPx/mushfiqur-rahim.webp",
+    "name": "Mushfiqur Rahim",
+    "hiring_price": 400000,
+    "country": "Bangladesh",
+    "rating": 9.0,
+    "category": "Batsman (Wicketkeeper)",
+    "batting_hand": "Right-hand",
+    "bowling_style": "N/A"
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co.com/2kFq0FV/mustafizur-rahman.webp",
+    "name": "Mustafizur Rahman",
+    "hiring_price": 350000,
+    "country": "Bangladesh",
+    "rating": 8.7,
+    "category": "Bowler",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Left-arm fast-medium"
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co.com/6gVq0Yg/litton-das.webp",
+    "name": "Liton Das",
+    "hiring_price": 250000,
+    "country": "Bangladesh",
+    "rating": 8.5,
+    "category": "Batsman (Wicketkeeper)",
+    "batting_hand": "Right-hand",
+    "bowling_style": "N/A"
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co.com/93Y60Qz/mahmudullah.webp",
+    "name": "Mahmudullah",
+    "hiring_price": 280000,
+    "country": "Bangladesh",
+    "rating": 8.6,
+    "category": "All-Rounder",
+    "batting_hand": "Right-hand",
+    "bowling_style": "Right-arm offbreak"
+  },
+  {
+    "id": 7,
+    "image": "https://i.ibb.co.com/rbQrG1C/taskin-ahmed.webp",
+    "name": "Taskin Ahmed",
+    "hiring_price": 300000,
+    "country": "Bangladesh",
+    "rating": 8.4,
+    "category": "Bowler",
+    "batting_hand": "Right-hand",
+    "bowling_style": "Right-arm fast"
+  },
+  {
+    "id": 8,
+    "image": "https://i.ibb.co.com/R72YvFG/soumya-sarkar.webp",
+    "name": "Soumya Sarkar",
+    "hiring_price": 240000,
+    "country": "Bangladesh",
+    "rating": 8.3,
+    "category": "All-Rounder",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Right-arm medium"
+  },
+  {
+    "id": 9,
+    "image": "https://i.ibb.co.com/t8qH5KV/afif-hossain.webp",
+    "name": "Afif Hossain",
+    "hiring_price": 220000,
+    "country": "Bangladesh",
+    "rating": 8.2,
+    "category": "All-Rounder",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Right-arm offbreak"
+  },
+  {
+    "id": 10,
+    "image": "https://i.ibb.co.com/nRKHZ5p/mehidy-hasan-miraz.webp",
+    "name": "Mehidy Hasan Miraz",
+    "hiring_price": 350000,
+    "country": "Bangladesh",
+    "rating": 8.8,
+    "category": "All-Rounder",
+    "batting_hand": "Right-hand",
+    "bowling_style": "Right-arm offbreak"
+  },
+  {
+    "id": 11,
+    "image": "https://i.ibb.co.com/Vjyv9Zb/mohammad-saifuddin.webp",
+    "name": "Mohammad Saifuddin",
+    "hiring_price": 270000,
+    "country": "Bangladesh",
+    "rating": 8.3,
+    "category": "All-Rounder",
+    "batting_hand": "Left-hand",
+    "bowling_style": "Right-arm fast-medium"
+  },
+  {
+    "id": 12,
+    "image": "https://i.ibb.co.com/cbPvfBj/najmul-hossain-shanto.webp",
+    "name": "Najmul Hossain Shanto",
+    "hiring_price": 240000,
+    "country": "Bangladesh",
+    "rating": 8.1,
+    "category": "Batsman",
+    "batting_hand": "Left-hand",
+    "bowling_style": "N/A"
+  }
+]
