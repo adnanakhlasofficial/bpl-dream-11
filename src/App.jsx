@@ -131,7 +131,7 @@ function App() {
           choosePlayer={choosePlayer}
         />
       ) : (
-        <SelectedPlayers />
+        <SelectedPlayers selectedPlayers={selectedPlayers}/>
       )}
 
       {/* React Toastify Container */}
