@@ -7,10 +7,16 @@
 
 @layer components {
   .btn {
-    @apply hover:bg-secondary rounded-xl bg-primary px-5 py-3 font-bold transition-colors text-deep-black;
+    @apply rounded-xl bg-primary px-5 py-3 font-bold text-deep-black transition-colors hover:bg-secondary;
   }
   .balance {
-    @apply inline-flex gap-2 rounded-xl border-2 px-5 py-4;
+    @apply inline-flex gap-2 rounded-xl border-2 px-5 py-4 font-semibold;
+  }
+  .btn-selected {
+    @apply rounded-xl border-2 border-transparent bg-primary px-7 py-3 font-bold text-deep-black;
+  }
+  .btn-not-selected {
+    @apply rounded-xl border-2 px-7 py-3 font-bold text-normal-gray;
   }
 }
 
@@ -26,6 +32,9 @@
   }
   .desc {
     @apply text-2xl font-medium;
+  }
+  .section-title {
+    @apply text-3xl font-bold text-deep-black;
   }
 }
 
