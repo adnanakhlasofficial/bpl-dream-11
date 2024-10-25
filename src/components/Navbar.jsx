@@ -1,4 +1,3 @@
-import dollar from "../img/coin.svg";
 import PropTypes from "prop-types";
 
 const Navbar = ({coin}) => {
@@ -15,7 +14,7 @@ const Navbar = ({coin}) => {
                     <li><a className="nav-links" href="#">Schedules</a></li>
                 </ul>
                 <div>
-                    <span className="balance">{coin} Coin <img src={dollar} alt="Dollar" /></span>
+                    <span className="balance">{coin} Coin <img className="w-6" src="/images/coin.webp" alt="Dollar" /></span>
                 </div>
             </div>
         </div>

@@ -10,13 +10,37 @@
     @apply rounded-xl bg-primary px-5 py-3 font-bold text-deep-black transition-colors hover:bg-secondary;
   }
   .balance {
-    @apply inline-flex gap-2 rounded-xl border-2 px-5 py-4 font-semibold;
+    @apply inline-flex gap-2 rounded-xl border-2 px-5 py-4 font-semibold items-center;
   }
   .btn-selected {
     @apply rounded-xl border-2 border-transparent bg-primary px-7 py-3 font-bold text-deep-black;
   }
   .btn-not-selected {
     @apply rounded-xl border-2 px-7 py-3 font-bold text-normal-gray;
+  }
+  .card {
+    @apply  rounded-2xl border-2 p-6;
+  }
+  .card-img {
+    @apply h-60 w-full rounded-xl object-cover object-center;
+  }
+  .card-name-title {
+    @apply flex items-center gap-4 text-xl font-semibold;
+  }
+  .card-flag {
+    @apply flex items-center gap-4 text-base text-normal-gray;
+  }
+  .card-category {
+    @apply rounded-lg bg-[#F3F3F3] px-4 py-2 text-sm text-deep-black;
+  }
+  .card-sub-title {
+    @apply font-bold text-deep-black;
+  }
+  .card-sub-desc {
+    @apply text-normal-gray;
+  }
+  .card-btn {
+    @apply w-full rounded-lg border-2 py-2 font-medium transition-colors hover:border-transparent hover:bg-primary;
   }
 }
 

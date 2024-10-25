@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ import SelectedPlayers from "./components/SelectedPlayers";
 function App() {
   const [coin, setCoin] = useState(0);
   const [isActive, setIsActive] = useState(true);
+  const [playersList, setPlayersList] = useState([]);
 
   // Claim Coin Function & Alert
   const claimCoin = () => {
@@ -29,6 +30,14 @@ function App() {
   const setActivity = (activity) => {
     setIsActive(activity);
   };
+
+  useEffect(() => {
+    fetch("/players.json")
+    .then(res => res.json())
+    .then(data => setPlayersList(data))
+  }, [])
+
+  // console.log(playersList);
 
   return (
     <div className="wrapper">
@@ -60,7 +69,7 @@ function App() {
       </div>
 
       {/* Players Container */}
-      {isActive ? <AvailablePlayers /> : <SelectedPlayers />}
+      {isActive ? <AvailablePlayers playersList={playersList} /> : <SelectedPlayers />}
 
       {/* React Toastify Container */}
       <ToastContainer />
