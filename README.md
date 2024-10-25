@@ -1,8 +1,32 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BPL DREAM 11
 
-Currently, two official plugins are available:
+BPL DREAM 11 is a cricket fan's go-to site for exploring detailed profiles of Bangladesh Premier League players. Users can view player stats like bidding price, ratings, roles (bowler, batsman, all-rounder), and handedness. They can hire up to six players to create their own dream team, with the flexibility to remove players as needed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features of BPL DREAM 11
+
+- Detailed Player Profiles: View essential stats such as name, bidding price, rating, role (bowler, batsman, all-rounder), and handedness (left or right-handed).
+
+- Team Building: Hire up to six players to create a personalized dream team.
+
+- Flexible Management: Easily add or remove players from your lineup.
+
+- User-Friendly Interface: Intuitive design for a smooth browsing and selection experience.
+
+- Comprehensive Data: In-depth information on all Bangladesh Premier League players.
+
+
+
+## Technology Stack for BPL DREAM 11
+
+- ReactJS: Built with modern React for dynamic and interactive UI.
+- React Hooks: Leveraging useState and useEffect for efficient state management.
+- Component Drilling & Lifting: For smooth data flow between components.
+- TailwindCSS: Ensures responsive and visually appealing styling.
+- React Toastify: Provides elegant and customizable alert notifications.
+
+## Explore Our Live Website
+
+Access the live version of our website to explore all its features and functionalities in real time. Click the link below and experience it firsthand
+
+[Visit the live site](https://bpl-dream-11-da.netlify.app/)
