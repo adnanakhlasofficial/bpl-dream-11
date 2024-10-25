@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import SinglePlayer from "./SinglePlayer";
 
-const AvailablePlayers = ({playersList, choosePlayer, isExist}) => {
+const AvailablePlayers = ({playersList, choosePlayer}) => {
 
   return (
     <div className="my-12 grid grid-cols-3 gap-6">
       {/* <SinglePlayer players={players}/> */}
 
       {
-        playersList.map((player) => <SinglePlayer key={player.id} isExist={isExist} choosePlayer={choosePlayer} player={player}/>)
+        playersList.map((player) => <SinglePlayer key={player.id} choosePlayer={choosePlayer} player={player}/>)
       }
     </div>
   );
@@ -16,8 +16,7 @@ const AvailablePlayers = ({playersList, choosePlayer, isExist}) => {
 
 AvailablePlayers.propTypes = {
     playersList: PropTypes.array.isRequired,
-    choosePlayer: PropTypes.func,
-    isExist: PropTypes.func
+    choosePlayer: PropTypes.func
 }
 
 export default AvailablePlayers;

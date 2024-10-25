@@ -39,45 +39,46 @@ function App() {
       .then((data) => setPlayersList(data));
   }, []);
 
+
   // Choose Player
   const choosePlayer = (player) => {
-    if (player.hiring_price > coin) {
-      toast.error("No Balance", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else {
-      setCoin(coin - player.hiring_price);
-      toast.success(`${player.name} has been selected`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  };
-
-  // Existing Player Check
-  const isExist = (player) => {
+    // finding exist player
     const exist = selectedPlayers.find(
       (singlePlayer) => singlePlayer.id === player.id,
     );
 
     if (!exist) {
-      const updatedPlayers = [...selectedPlayers, player];
-      setSelectedPlayers(updatedPlayers);
+      if (player.hiring_price > coin) {
+        toast.error("No Balance", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        // Balance deducted
+        setCoin(coin - player.hiring_price);
+        // Success alert
+        toast.success(`${player.name} has been selected`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        // Selected Player updated
+        const updatedPlayers = [...selectedPlayers, player];
+        setSelectedPlayers(updatedPlayers);
+      }
     } else {
-      toast.error('Player has already been selected', {
+      toast.error("Player has already been selected", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -86,7 +87,7 @@ function App() {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
   };
 
@@ -128,7 +129,6 @@ function App() {
         <AvailablePlayers
           playersList={playersList}
           choosePlayer={choosePlayer}
-          isExist={isExist}
         />
       ) : (
         <SelectedPlayers />
