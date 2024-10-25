@@ -16,7 +16,8 @@ export default {
         "navy-blue": "#06091A"
       },
       backgroundImage:{
-        "banner": "url('/images/bg-shadow.webp'), linear-gradient(0deg, rgba(19,19,19,1) 0%, rgba(19,19,19,1) 100%)"
+        "banner": "url('/images/bg-shadow.webp'), linear-gradient(0deg, rgba(19,19,19,1) 0%, rgba(19,19,19,1) 100%)",
+        "newsletter": "url('/images/bg-shadow.webp')",
       }
     },
   },

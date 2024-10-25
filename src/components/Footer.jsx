@@ -1,7 +1,10 @@
+import Newsletter from "./Newsletter";
+
 const Footer = () => {
   return (
-    <div className="bg-navy-blue mt-20 pt-60">
-      <div className="wrapper text-white">
+    <div className="bg-navy-blue mt-64 pt-60">
+      <div className="wrapper text-white relative">
+        <Newsletter />
         <div className="flex justify-center">
           <img src="/images/logo-footer.webp" alt="" />
         </div>
@@ -51,7 +54,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mt-20 ">
+
+      <div className="mt-20">
         <p className="footer-desc border-t-2 border-[#FFFFFF26] py-8 text-center">
           &copy;2024 BPL DREAM 11 All Rights Reserved.
         </p>
