@@ -1,10 +1,11 @@
 import Newsletter from "./Newsletter";
+import PropTypes from "prop-types";
 
-const Footer = () => {
+const Footer = ({getMessage, storeMessage, message}) => {
   return (
     <div className="bg-navy-blue mt-72 pt-60">
       <div className="wrapper text-white relative">
-        <Newsletter />
+        <Newsletter getMessage={getMessage} storeMessage={storeMessage} message={message}/>
         <div className="flex justify-center">
           <img src="/images/logo-footer.webp" alt="" />
         </div>
@@ -63,5 +64,12 @@ const Footer = () => {
     </div>
   );
 };
+
+Footer.propTypes = {
+  getMessage: PropTypes.func.isRequired,
+  storeMessage: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+}
+
 
 export default Footer;

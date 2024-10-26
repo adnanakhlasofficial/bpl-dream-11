@@ -12,6 +12,7 @@ function App() {
   const [isActive, setIsActive] = useState(true);
   const [playersList, setPlayersList] = useState([]);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
+  const [message, setMessage] = useState("");
 
   // Claim Coin Function & Alert
   const claimCoin = () => {
@@ -40,10 +41,28 @@ function App() {
       .then((data) => setPlayersList(data));
 
     const playerList = JSON.parse(localStorage.getItem("playerList"));
-    playerList && setSelectedPlayers(playerList);
-    if (playerList.length > 0) {
+    if (!playerList) {
+      setSelectedPlayers([]);
+    } else {
+      setSelectedPlayers(playerList);
       const balance = parseInt(localStorage.getItem("coin"));
       balance && setCoin(balance);
+    }
+
+    const message = localStorage.getItem("message");
+    message && setMessage(message);
+
+    if ((playerList && message) || playerList || message) {
+      toast.success("Data restored! You're all set to continue from your last session.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   }, []);
 
@@ -149,6 +168,25 @@ function App() {
     });
   };
 
+  // Newsletter
+  const getMessage = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const storeMessage = () => {
+    localStorage.setItem("message", message);
+    toast.success('Subscription confirmed! We’re glad you’re here!"', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  };
+
   return (
     <>
       {/* Navbar */}
@@ -198,7 +236,7 @@ function App() {
         />
       )}
 
-      <Footer />
+      <Footer getMessage={getMessage} storeMessage={storeMessage} message={message}/>
 
       {/* React Toastify Container */}
       <ToastContainer />
