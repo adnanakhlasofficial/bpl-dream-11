@@ -13,6 +13,8 @@ BPL DREAM 11 is a cricket fan's go-to site for exploring detailed profiles of Ba
 - Flexible Management: Easily add or remove players from your lineup.
 - User-Friendly Interface: Intuitive design for a smooth browsing and selection experience.
 - Comprehensive Data: In-depth information on all Bangladesh Premier League players.
+- Enhanced Session Continuity: Last session is saved in local storage, allowing users to seamlessly continue building their team from where they left off.
+- Newsletter Subscription Reminder: When users subscribe to the newsletter, their email address is displayed upon the next login, keeping them informed and connected.
 
 
 ## Technology Stack for BPL DREAM 11
@@ -22,6 +24,7 @@ BPL DREAM 11 is a cricket fan's go-to site for exploring detailed profiles of Ba
 - Component Drilling & Lifting: For smooth data flow between components.
 - TailwindCSS: Ensures responsive and visually appealing styling.
 - React Toastify: Provides elegant and customizable alert notifications.
+- Local Storage Integration: Utilizes local storage to enhance session continuity, saving team selections, and storing user preferences like email for newsletter subscriptions.
 
 ## Explore Our Live Website
 
