@@ -39,9 +39,12 @@ function App() {
       .then((res) => res.json())
       .then((data) => setPlayersList(data));
 
-      const playerList = JSON.parse(localStorage.getItem("playerList"))
-      playerList && setSelectedPlayers(playerList);
-
+    const playerList = JSON.parse(localStorage.getItem("playerList"));
+    playerList && setSelectedPlayers(playerList);
+    if (playerList.length > 0) {
+      const balance = parseInt(localStorage.getItem("coin"));
+      balance && setCoin(balance);
+    }
   }, []);
 
   // Choose Player
@@ -65,19 +68,24 @@ function App() {
     } else {
       if (!exist) {
         if (player.hiring_price > coin) {
-          toast.error("Not enough money to buy this player. Claim some Credit.", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          toast.error(
+            "Not enough money to buy this player. Claim some Credit.",
+            {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            },
+          );
         } else {
           // Balance deducted
-          setCoin(coin - player.hiring_price);
+          const updateBalance = coin - player.hiring_price;
+          setCoin(updateBalance);
+
           // Success alert
           toast.success(`Congrates!! ${player.name} is now in your Squad.`, {
             position: "top-center",
@@ -96,6 +104,9 @@ function App() {
           // Local storage
           const updatedPlayersString = JSON.stringify(updatedPlayers);
           localStorage.setItem("playerList", updatedPlayersString);
+
+          // Local storage balance
+          localStorage.setItem("coin", updateBalance);
         }
       } else {
         toast.error("Player already selected", {
@@ -115,14 +126,18 @@ function App() {
   // Remove Player
   const removePlayer = (player) => {
     // Filter player after player removed
-    const updatePlayers = selectedPlayers.filter(singlePlayer => singlePlayer.id !== player.id);
+    const updatePlayers = selectedPlayers.filter(
+      (singlePlayer) => singlePlayer.id !== player.id,
+    );
     setSelectedPlayers(updatePlayers);
     // Local storage
     const updatedPlayersString = JSON.stringify(updatePlayers);
     localStorage.setItem("playerList", updatedPlayersString);
-
-    setCoin(coin + player.hiring_price)
-    toast.warn('Player removed', {
+    const updateBalance = coin + player.hiring_price;
+    setCoin(updateBalance);
+    // Local storage balance
+    localStorage.setItem("coin", updateBalance);
+    toast.warn("Player removed", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -131,8 +146,8 @@ function App() {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
-  }
+    });
+  };
 
   return (
     <>
@@ -142,16 +157,18 @@ function App() {
       <Banner claimCoin={claimCoin} />
 
       {/* Button */}
-      <div className="mt-20 flex items-center justify-between wrapper">
+      <div className="wrapper mt-20 flex items-center justify-between">
         <div>
           {isActive ? (
             <h1 className="section-title">Available Players</h1>
           ) : (
-            <h1 className="section-title">Selected Players ({selectedPlayers.length}/6)</h1>
+            <h1 className="section-title">
+              Selected Players ({selectedPlayers.length}/6)
+            </h1>
           )}
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 sm:gap-0">
+        <div className="flex flex-col gap-4 sm:gap-0 md:flex-row">
           <button
             onClick={() => setActivity(true)}
             className={`${isActive ? "btn-selected" : "btn-not-selected"} sm:rounded-r-none`}
