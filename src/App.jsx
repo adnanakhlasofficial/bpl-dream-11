@@ -38,6 +38,10 @@ function App() {
     fetch("/players.json")
       .then((res) => res.json())
       .then((data) => setPlayersList(data));
+
+      const playerList = JSON.parse(localStorage.getItem("playerList"))
+      playerList && setSelectedPlayers(playerList);
+
   }, []);
 
   // Choose Player
@@ -88,6 +92,10 @@ function App() {
           // Selected Player updated
           const updatedPlayers = [...selectedPlayers, player];
           setSelectedPlayers(updatedPlayers);
+
+          // Local storage
+          const updatedPlayersString = JSON.stringify(updatedPlayers);
+          localStorage.setItem("playerList", updatedPlayersString);
         }
       } else {
         toast.error("Player already selected", {
@@ -109,6 +117,10 @@ function App() {
     // Filter player after player removed
     const updatePlayers = selectedPlayers.filter(singlePlayer => singlePlayer.id !== player.id);
     setSelectedPlayers(updatePlayers);
+    // Local storage
+    const updatedPlayersString = JSON.stringify(updatePlayers);
+    localStorage.setItem("playerList", updatedPlayersString);
+
     setCoin(coin + player.hiring_price)
     toast.warn('Player removed', {
       position: "top-right",
