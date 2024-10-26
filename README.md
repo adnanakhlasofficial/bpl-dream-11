@@ -9,15 +9,10 @@ BPL DREAM 11 is a cricket fan's go-to site for exploring detailed profiles of Ba
 ## Key Features of BPL DREAM 11
 
 - Detailed Player Profiles: View essential stats such as name, bidding price, rating, role (bowler, batsman, all-rounder), and handedness (left or right-handed).
-
 - Team Building: Hire up to six players to create a personalized dream team.
-
 - Flexible Management: Easily add or remove players from your lineup.
-
 - User-Friendly Interface: Intuitive design for a smooth browsing and selection experience.
-
 - Comprehensive Data: In-depth information on all Bangladesh Premier League players.
-
 
 
 ## Technology Stack for BPL DREAM 11
