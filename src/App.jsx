@@ -48,7 +48,7 @@ function App() {
     );
 
     if (selectedPlayers.length === 6) {
-      toast.error("Can't Select more than 6 players", {
+      toast.error("Maximum players selected!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -61,7 +61,7 @@ function App() {
     } else {
       if (!exist) {
         if (player.hiring_price > coin) {
-          toast.error("No Balance", {
+          toast.error("Not enough money to buy this player. Claim some Credit.", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -75,7 +75,7 @@ function App() {
           // Balance deducted
           setCoin(coin - player.hiring_price);
           // Success alert
-          toast.success(`${player.name} has been selected`, {
+          toast.success(`Congrates!! ${player.name} is now in your Squad.`, {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -90,7 +90,7 @@ function App() {
           setSelectedPlayers(updatedPlayers);
         }
       } else {
-        toast.error("Player has already been selected", {
+        toast.error("Player already selected", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -110,6 +110,16 @@ function App() {
     const updatePlayers = selectedPlayers.filter(singlePlayer => singlePlayer.id !== player.id);
     setSelectedPlayers(updatePlayers);
     setCoin(coin + player.hiring_price)
+    toast.warn('Player removed', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   }
 
   return (
@@ -129,16 +139,16 @@ function App() {
           )}
         </div>
 
-        <div>
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-0">
           <button
             onClick={() => setActivity(true)}
-            className={`${isActive ? "btn-selected" : "btn-not-selected"} rounded-r-none`}
+            className={`${isActive ? "btn-selected" : "btn-not-selected"} sm:rounded-r-none`}
           >
             Available
           </button>
           <button
             onClick={() => setActivity(false)}
-            className={`${!isActive ? "btn-selected" : "btn-not-selected"} rounded-l-none`}
+            className={`${!isActive ? "btn-selected" : "btn-not-selected"} sm:rounded-l-none`}
           >
             Selected ({selectedPlayers.length})
           </button>

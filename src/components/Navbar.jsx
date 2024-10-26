@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 
 const Navbar = ({coin}) => {
     return (
-        <div className='wrapper flex justify-between items-center pt-8'>
+        <div className='wrapper flex flex-col md:flex-row justify-between items-center pt-8 gap-6'>
             <div>
                 <img src="./images/logo.webp" alt="logo" />
             </div>
-            <div className="flex items-center gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-12">
                 <ul className="flex gap-4">
                     <li><a className="nav-links" href="#">Home</a></li>
                     <li><a className="nav-links" href="#">Fixture</a></li>

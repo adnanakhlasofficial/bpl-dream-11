@@ -52,7 +52,7 @@
     @apply text-dark-gray hover:text-deep-black;
   }
   .banner-title {
-    @apply text-[2.5rem] font-bold leading-[3.75rem];
+    @apply text-3xl lg:text-[2.5rem] font-bold leading-[3.75rem];
   }
   .desc {
     @apply text-2xl font-medium;
